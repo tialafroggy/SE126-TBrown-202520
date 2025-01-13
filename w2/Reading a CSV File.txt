@@ -1,0 +1,23 @@
+# file          is the file stored in the location defined in open     
+# row           is used to read one row at a time from file
+#
+# Notes:
+#   row[0] referes to the first piece of data in the row
+#   row[1] referes to the second piece of data in the row
+#   row[2] referes to the third piece of data in the row
+
+import csv
+
+total = 0
+num_records = 0
+
+with open("D:/SE 126/example.csv") as csvfile:
+    file = csv.reader(csvfile)
+    for row in file:
+        num_records = num_records + 1
+        total = total + int(row[2])
+        print("{:5} {:5} {:8}".format(row[0], row[1], int(row[2])))
+
+print("Payroll  is $", total)
+print()
+print(num_records, "records were processed")

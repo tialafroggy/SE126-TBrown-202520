@@ -1,0 +1,30 @@
+import csv
+
+total_salary = 0
+num_records = 0
+average_age = 0
+sum_age = 0
+
+name = []   # creates an empty table (list) named name
+age = []    # creates an empty table (list) named age
+salary = [] # creates an empty table (list) named salary
+
+with open("D:/Python/Example.csv") as csvfile:
+    file = csv.reader(csvfile)
+    for record in file:
+       name.append(record[0])           # appends the name to the name array (table)
+       age.append(int(record[1]))       # appends the name to the age array (table)
+       salary.append(int(record[2]))    # appends the name to the salary array (table)
+       num_records = num_records + 1
+
+for index in range(0, num_records):             # remember that the range is from 0 to 1 less than num_records
+   total_salary = total_salary + salary[index]  # adding the salary to total salary.  Index is the postion in the table
+
+print("Total salary is $", total_salary)
+
+for index in range(0, num_records):
+   sum_age = sum_age + age[index]
+
+average_age = sum_age / num_records
+
+print("The average age of is ", average_age)
