@@ -37,7 +37,7 @@ canVoteDidntVote = 0
 totalRecords = 0
 ageReq = 18
 
-with open("w3/voters_202040.csv") as file:  # Replace with actual file path.
+with open("w3/voters_202040.csv") as file:  
     data = csv.reader(file)
     for row in data:
         # Append data from each row into lists.
@@ -45,7 +45,7 @@ with open("w3/voters_202040.csv") as file:  # Replace with actual file path.
         age.append(int(row[1]))   
         registered.append(row[2])       
         voted.append(row[3])             
-
+        # Add each record to the total.
         totalRecords += 1
     for i in range(totalRecords):
         if(registered[i] == "N"):
