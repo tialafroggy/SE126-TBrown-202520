@@ -24,7 +24,7 @@
 #NOTES: main notes found in program.
 import csv
 
-# Initialize variables for counting replacements and storing data
+# Initialize variables for counting replacements and storing data.
 totalRecords = 0
 desktopReplace = 0
 laptopReplace = 0
@@ -39,8 +39,8 @@ diskCount = []
 osVersion = []          
 manufactureYear = []    
 
-# Open the CSV file and read the data
-with open("w3/filehandling-1.csv") as file:  # Replace with actual file path
+# Open the CSV file and read the data.
+with open("w3/filehandling-1.csv") as file:  # Replace with actual file path.
     data = csv.reader(file)
     for row in data:
         # Append data from each row into lists.
@@ -61,22 +61,21 @@ with open("w3/filehandling-1.csv") as file:  # Replace with actual file path
             osVersion.append(row[6])         
             manufactureYear.append(int(row[7])) 
 
-        # Increment the record counter
+        # Record counter.
         totalRecords += 1
 
-# Loop through each record and count desktops and laptops that need replacement
+# Loop through each record and count desktops and laptops that need replacement.
 for i in range(totalRecords):
-    # If the computer is a desktop and made in or before 2016, it needs replacement
+    
     if manufactureYear[i] <= 16 and computerType[i] == "D":
         desktopReplace += 1
-    # If the computer is a laptop and made in or before 2016, it needs replacement
+    
     elif manufactureYear[i] <= 16 and computerType[i] == "L":
         laptopReplace += 1
 
-# Calculate the total cost for replacing desktops and laptops
-desktopReplacementCost = desktopReplace * 2000  # Assume each desktop replacement costs $2000
-laptopReplacementCost = laptopReplace * 1500    # Assume each laptop replacement costs $1500
+# Calculate the total cost for replacing desktops and laptops.
+desktopReplacementCost = desktopReplace * 2000  # Assume each desktop replacement costs $2000.
+laptopReplacementCost = laptopReplace * 1500    # Assume each laptop replacement costs $1500.
 
-# Print out the results
 print(f"New Desktops:   {desktopReplace: ^1}    Cost of New Desktops:   ${desktopReplacementCost: .2f}")
 print(f"New Laptops:    {laptopReplace: ^1}    Cost of New Laptops:    ${laptopReplacementCost: .2f}")
