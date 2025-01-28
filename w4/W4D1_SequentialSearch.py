@@ -82,8 +82,9 @@ while answer == "y":
     #get search type from user.
     print("\tSEARCH MENU OPTIONS")
     print("1. Search by LAST name")
-    print("2. Search by LETTER GRADE ")
-    print("3. EXIT ")
+    print("2. Search by FIRST name ")
+    print("3. Search by LETTER grade ")
+    print("4. EXIT ")
     search_type = input("Enter your search type [1-3]: ")
 
     if search_type == "1":
@@ -106,8 +107,27 @@ while answer == "y":
         else:
             print(f"Your search for {search_name} was *NOT* FOUND!")
             print(f"This is a cAsE sEnSiTiVe program! Please check your spelling.")
-
     elif search_type == "2":
+        print("\tSEARCH BY FIRST NAME")
+
+        found = [] #invalid index number, wil use to check later to see if a student has been found.
+        #get search item from user.
+        search_name = input("What is the FIRST name you are looking for? ")
+        #perform search.
+        for i in range(0, len(fName)):
+            #the FOR LOOP allows for the "sequence" part --> from beginning to end!
+            if search_name.lower() == fName[i].lower():
+                #the IF STATEMENT alows for the "search" part.
+                found = i #make found the current index, can be used later to display.
+        #display results.
+        if found != -1:
+            #last name has been found! display data:
+            print(f"Your search for {search_name} was FOUND!")
+            print(f"{fName[found]:10}   {lName[found]:10}   {test1[found]:3}   {test2[found]:3}   {test3[found]:3}  {num_avg[found]:6.2f}   {let_avg[found]}")
+        else:
+            print(f"Your search for {search_name} was *NOT* FOUND!")
+            print(f"This is a cAsE sEnSiTiVe program! Please check your spelling.")
+    elif search_type == "3":
         print("\tSEARCH BY LETTER GRADE")
 
         found = [] #creates empty list to gather and store found index values..
@@ -130,9 +150,19 @@ while answer == "y":
             for i in range(0, len(found)):
              print(f"{fName[found[i]]:10}   {lName[found[i]]:10}   {test1[found[i]]:3}   {test2[found[i]]:3}   {test3[found[i]]:3}  {num_avg[found[i]]:6.2f}   {let_avg[found[i]]}")
            
-    elif search_type == "3":
+    elif search_type == "4":
         print("EXITTING")
+
     else: 
         print("INVALID ENTRY!")
-    #build a way out.
+    
+    #BUILD A WAY OUT! Allow for the 'loop key var' to be revalued.
+    answer = input('\tDo you want to try again? [y/n]: ')
 
+    #USER ERROR TRAP LOOP -- trap the user when they don't follow directions :]
+    while answer != "y" and answer != "Y" and answer != "n" and answer != "N":
+        print("\t\t***INVALID ENTRY!*** FOLLOW DIRECTIONS BUDDY.")
+        #BUILD A WAY OUT! allow for the 'loop key var' to be revalued.
+        answer = input("\tWould you like to try again? :] [y/n]: ")
+
+print("\n\nThank you for using my program. Goodbye :]")
