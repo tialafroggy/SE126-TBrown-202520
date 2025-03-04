@@ -1,5 +1,5 @@
 # Tshauni Brown
-# Program Name: Airplane Seat Reservation System.
+# Program Name: Dictionary Search and Add.
 # Week 9 Lab # 7
 # Program Prompt: Access the words.csv file and store the data to a dictionary, where each word in the file is a key of the dictionary and the value stored to each key is the word’s corresponding definition. Then, create a repeatable program that allows a user to interact with the dictionary based on the following menu.
 
