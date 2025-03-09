@@ -22,7 +22,7 @@ ext = []
 
 with open("westeros.csv", mode='r') as csvfile:
     file = csv.reader(csvfile)
-    header = next(file, None)  # Skip the first row (header)
+    header = next(file, None)  # Skip the first row (header.)
     for rec in file:
         #append the file data into appropriate lists.
         fName.append(rec[0])
